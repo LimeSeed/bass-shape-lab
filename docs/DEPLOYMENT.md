@@ -1,8 +1,14 @@
 # 静态部署说明
 
-核对日期：2026-11-13。V1.0.1 已发布到 Vercel Production：[Bass Shape Lab](https://bass-shape-lab.vercel.app)，状态为 READY。EdgeOne Pages 仍是备选方案，尚未执行部署。
+核对日期：2026-11-13。V1.0.1 已发布到 [GitHub Pages](https://limeseed.github.io/bass-shape-lab/) 和 [Vercel Production](https://bass-shape-lab.vercel.app)。[公开源码仓库](https://github.com/LimeSeed/bass-shape-lab) 已建立；EdgeOne Pages 仍是备选方案，尚未执行部署。
 
 生产浏览器验证已通过；后续使用反馈中国大陆直接访问不稳定。首次检查时命令行直连超时，浏览器经其环境网络路径访问成功；这不能保证其他网络可达性。详见 [Vercel 发布记录](VERCEL-RELEASE.md) 和 [测试结果](TESTING.md)。
+
+## 当前 GitHub Pages 部署
+
+仓库 `main` 分支通过 `.github/workflows/pages.yml` 自动完成依赖安装、单元测试、生产构建、浏览器测试，然后发布 `dist/`。所有检查成功后才执行部署，也可从 Actions 手动运行。Pages 使用项目子路径 `/bass-shape-lab/`，保留结尾 `/` 即可正确加载相对资源和离线作用域。
+
+本次发布检查使用现有代理网络路径，尚未完成大陆直连验收。工作流与权限说明见 [GITHUB-PAGES.md](GITHUB-PAGES.md)。
 
 ## 当前 Vercel 部署
 
@@ -10,7 +16,7 @@
 
 项目没有后端函数，静态资源由全球 CDN 分发；函数区域设为香港不会把整个静态站固定在香港。Vercel 官方说明其没有中国大陆节点，无法保证大陆访问表现；后续如需提高教学访问可靠性，可实测自定义域名或使用下面的 EdgeOne 备选部署。[官方函数区域说明](https://vercel.com/docs/functions/configuring-functions/region)、[官方大陆访问说明](https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china)
 
-再次发布前重新执行本地测试与构建，核对目标项目、版本和完整输出。GitHub 仓库与 Vercel 的自动部署连接需单独配置；上传源码本身不会改变现有网站的网络路径。
+再次发布前重新执行本地测试与构建，核对目标项目、版本和完整输出。现有 Vercel 项目已连接 `LimeSeed/bass-shape-lab`，`main` 分支更新会触发自动生产部署；上传源码本身不会改变现有网站的网络路径。
 
 ## 通用静态托管
 

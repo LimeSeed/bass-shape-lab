@@ -35,6 +35,14 @@ npm run test:browser
 - **PWA 浏览器验证通过**：单音程链接断网重新打开、子目录缓存、主动确认更新且保留选择、下载失败保留旧版、多标签页更新。
 - **TypeScript 检查及生产构建通过**，应用版本为 1.0.1。
 
+## GitHub Pages 持续集成与发布
+
+公开仓库 [LimeSeed/bass-shape-lab](https://github.com/LimeSeed/bass-shape-lab) 的 [Actions 运行 43397496063](https://github.com/LimeSeed/bass-shape-lab/actions/runs/43397496063) 已完成单元测试、生产构建、浏览器测试及 Pages 部署，全部成功。首次发布来源提交为 `26e12fa21e83d9c7f640963be36cd3d9d4c14feb`，上线地址为 [GitHub Pages](https://limeseed.github.io/bass-shape-lab/)。
+
+此处记录的是托管工作流与发布结果。线上检查使用现有代理网络路径，不是关闭代理后的中国大陆直接访问测试。Pages 的子路径与更新方式见 [GITHUB-PAGES.md](GITHUB-PAGES.md)。
+
+GitHub Pages 生产页面也已在浏览器中验证：当前版本、固定 1–12 品、单音程选择、隐藏答案、分享恢复正常；子目录 Service Worker 作用域与构建字节一致，未访问过的参数链接可断网打开并刷新。该检查使用浏览器当前网络路径，不代表大陆直连验收。
+
 ## Vercel 生产验证
 
 2026-11-13 16:05（中国标准时间），对 [生产地址](https://bass-shape-lab.vercel.app) 使用全新 Microsoft Edge 浏览器会话验证通过：

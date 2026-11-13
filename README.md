@@ -2,9 +2,15 @@
 
 用于四弦贝斯教学和日常练习的独立静态 PWA。React + TypeScript + Vite + SVG；乐理与指板计算全部在本机完成，无数据库、后端、账号、外部字体、统计脚本或在线运行时资源。
 
-已发布 Vercel 生产版本 **1.0.1**：[打开 Bass Shape Lab](https://bass-shape-lab.vercel.app)。本地项目及静态构建可独立运行、迁移到其他静态托管平台。
+当前版本 **1.0.1**：
 
-生产版本已通过匿名浏览器访问、分享设置及离线重载验证。后续使用反馈中国大陆直接访问不稳定；测试环境中的浏览器访问成功不能保证其他网络可达性。[发布记录](docs/VERCEL-RELEASE.md)
+- [GitHub Pages 在线使用](https://limeseed.github.io/bass-shape-lab/)
+- [Vercel 在线使用](https://bass-shape-lab.vercel.app)
+- [GitHub 公开源码](https://github.com/LimeSeed/bass-shape-lab)
+
+GitHub Pages 会在 `main` 分支更新后自动测试、构建和发布；现有 Vercel 项目也已连接同一仓库，自动构建并更新生产网站。本地项目及静态构建可独立运行、迁移到其他静态托管平台。[GitHub Pages 说明](docs/GITHUB-PAGES.md)
+
+Vercel 生产版本已通过匿名浏览器访问、分享设置及离线重载验证，后续使用反馈中国大陆直接访问不稳定。GitHub Pages 已完成自动测试、构建和发布；本次线上检查使用现有代理网络路径，不代表中国大陆直连验收。[Vercel 发布记录](docs/VERCEL-RELEASE.md)
 
 ## 本地运行
 
