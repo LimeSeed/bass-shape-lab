@@ -3,15 +3,23 @@
   "private": true,
   "version": "1.0.1",
   "type": "module",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "test": "vitest run",
     "test:browser": "playwright test",
-    "build": "tsc -b && vite build && node scripts/generate-sw.mjs",
-    "preview": "vite preview --host 127.0.0.1"
+    "build": "npm run build:shape && npm --prefix apps/transcribe run build && node scripts/assemble-site.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "build:shape": "tsc -b && vite build && node scripts/generate-sw.mjs",
+    "dev:transcribe": "npm --prefix apps/transcribe run dev",
+    "test:transcribe": "npm --prefix apps/transcribe run test:practice"
   },
-  "dependencies": { "react": "19.2.0", "react-dom": "19.2.0" },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",

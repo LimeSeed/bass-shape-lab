@@ -18,10 +18,10 @@
 
 每次推送到 `main`，GitHub Actions 会依次执行：
 
-1. 取出源码，准备 Node.js 24，并用 `npm ci` 安装锁定依赖。
-2. 运行 `npm test` 检查乐理、指板、URL 设置与 PWA 生命周期。
-3. 运行 `npm run build`，生成静态应用和按内容版本化的离线缓存。
-4. 安装 Chromium 并执行 `npm run test:browser`，覆盖交互、响应式布局和离线更新流程。
+1. 取出源码，准备 Node.js 24，使用 `npm ci` 安装指板依赖，使用 pnpm 11.25.0 按 `apps/transcribe/pnpm-lock.yaml` 安装扒谱依赖。
+2. 运行 `npm test` 检查乐理、指板、URL 设置与 PWA 生命周期；运行 `npm run test:transcribe` 检查扒谱设置、节点与段落数据兼容。
+3. 运行 `npm run build`，构建指板和扒谱，组合工具入口，生成分别隔离的离线缓存。
+4. 安装 Chromium 并执行 `npm run test:browser`，覆盖指板交互、响应式布局和离线更新，以及实际 Pages 子路径下的跨工具导航、音频播放、歌曲恢复和离线刷新。
 5. 仅在前面步骤成功后上传 `dist/`，再部署到 `github-pages` 环境。
 
 也可在仓库 Actions 页面选择 **Test and deploy GitHub Pages → Run workflow** 手动运行。部署结果以 Actions 运行和 Pages 环境状态为准；提交源码后，网页不会在测试及部署结束前立即变化。
@@ -51,3 +51,7 @@ https://limeseed.github.io/bass-shape-lab/?root=E&mode=interval&interval=7&view=
 GitHub 保存源码，GitHub Pages 根据该仓库构建并托管应用；[Vercel](https://bass-shape-lab.vercel.app) 是另一个独立托管目标。首个 Vercel 版本通过源码快照上传；现有 Vercel 项目现已连接这个 GitHub 仓库。
 
 向 `main` 推送会分别触发本仓库的 Pages 工作流和现有 Vercel 项目的生产部署。发布源码或切换源码存放位置不会改变已有网站的网络路径。大陆网络实测与 EdgeOne 备选说明见 [DEPLOYMENT.md](DEPLOYMENT.md)。
+
+## 同仓库工具站
+
+原指板网址保持不变。工具入口为 `https://limeseed.github.io/bass-shape-lab/tools/`，扒谱为 `https://limeseed.github.io/bass-shape-lab/transcribe/`。以上是该发布结构的目标地址，最新实际状态见 [整合发布记录](TOOLS-RELEASE.md)。

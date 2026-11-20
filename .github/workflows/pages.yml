@@ -28,19 +28,31 @@ jobs:
           node-version: '24'
           cache: npm
 
+      - name: Set up pnpm for Transcribe
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 11.25.0
+          run_install: false
+
       - name: Install locked dependencies
         run: npm ci
+
+      - name: Install locked Transcribe dependencies
+        run: pnpm --dir apps/transcribe install --frozen-lockfile
 
       - name: Test theory, settings, fretboard and PWA lifecycle
         run: npm test
 
-      - name: Build static application and offline cache
+      - name: Test Transcribe practice data compatibility
+        run: npm run test:transcribe
+
+      - name: Build both tools and independent offline caches
         run: npm run build
 
       - name: Install Chromium for browser tests
         run: npx playwright install --with-deps chromium
 
-      - name: Test browser flows and offline updates
+      - name: Test browser flows, tool navigation and offline updates
         run: npm run test:browser
 
       - name: Upload verified static site

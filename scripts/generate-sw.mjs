@@ -10,11 +10,13 @@ export async function generateServiceWorker(directory = 'dist') {
     const entries = await readdir(directory, { withFileTypes: true });
     const groups = await Promise.all(entries.map(async (entry) => {
       const path = resolve(directory, entry.name);
+      // The audio tool owns its own install, cache version and worker scope.
+      if (directory === dist && entry.name === 'transcribe') return [];
       return entry.isDirectory() ? walk(path) : [path];
     }));
     return groups.flat();
   }
-  const paths = (await walk(dist)).filter((path) => relative(dist, path) !== 'sw.js').sort();
+  const paths = (await walk(dist)).filter((path) => !['sw.js', '.nojekyll'].includes(relative(dist, path))).sort();
   const hash = createHash('sha256');
   // Worker-behavior changes also get an isolated cache, even with identical UI assets.
   hash.update(await readFile(new URL(import.meta.url))).update('\0');
@@ -36,6 +38,12 @@ const FILES = ${JSON.stringify(files)};
 const URLS = FILES.map(path => new URL(path, BASE).href);
 const ALLOWED = new Set(URLS);
 const SHELL = new URL('index.html', BASE).href;
+const ENTRIES = new Map([[new URL(BASE).pathname, SHELL], [new URL(SHELL).pathname, SHELL]]);
+if (FILES.includes('tools/index.html')) {
+  const tools = new URL('tools/index.html', BASE).href;
+  ENTRIES.set(new URL('tools/', BASE).pathname, tools);
+  ENTRIES.set(new URL(tools).pathname, tools);
+}
 
 self.addEventListener('install', event => {
   // A partial download must never replace a working, complete offline version.
@@ -67,12 +75,12 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== new URL(BASE).origin) return;
-  const isAppEntry = url.pathname === new URL(BASE).pathname || url.pathname === new URL(SHELL).pathname;
+  const entry = ENTRIES.get(url.pathname);
   // URL settings share one cached shell; a waiting release stays opt-in.
-  if (request.mode === 'navigate' && isAppEntry) {
+  if (request.mode === 'navigate' && entry) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE);
-      return await cache.match(SHELL) || fetch(request);
+      return await cache.match(entry) || fetch(request);
     })());
     return;
   }

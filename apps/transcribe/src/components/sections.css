@@ -1,0 +1,25 @@
+.sections-control { display: inline-flex; align-items: center; flex: 0 0 auto; }
+.sections-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 11px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); background: var(--raised); font-size: 13px; }
+.sections-toggle.is-open { color: var(--accent); border-color: var(--accent); }
+.sections-count { display: inline-flex; align-items: center; justify-content: center; min-width: 19px; height: 19px; padding: 0 4px; border-radius: 4px; background: var(--bg); color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.sections-popover { position: fixed; z-index: 65; display: flex; flex-direction: column; overflow: hidden; padding: 9px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--text); box-shadow: var(--shadow); outline: none; }
+.sections-heading { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: 10px; padding: 0 1px 7px 6px; font-size: 14px; }
+.sections-heading > span { display: inline-flex; align-items: center; gap: 7px; }
+.sections-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; min-width: 32px; min-height: 32px; padding: 7px; border-radius: 5px; color: var(--muted); }
+.sections-remove:hover:not(:disabled) { color: var(--warm); }
+.sections-list { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.sections-row { display: flex; align-items: center; gap: 7px; padding: 7px 3px; border-top: 1px solid var(--line); }
+.sections-row-main { display: flex; flex: 1; flex-direction: column; gap: 1px; min-width: 0; }
+.sections-row-main input { width: 100%; min-width: 0; min-height: 31px; padding: 5px 7px; font-size: 14px; }
+.sections-select { justify-content: flex-start; gap: 5px; min-height: 26px; padding: 3px 7px; color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.sections-select:hover:not(:disabled) { color: var(--accent); }
+.sections-save { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; gap: 6px; width: 100%; min-height: 35px; margin-top: 5px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--accent); background: var(--raised); font-size: 13px; }
+@media (max-width: 600px) {
+  .sections-toggle { min-height: 36px; padding: 6px 9px; }
+  .sections-icon { min-width: 38px; min-height: 38px; }
+  .sections-row { padding-top: 8px; padding-bottom: 8px; }
+  .sections-row-main input { min-height: 35px; font-size: 16px; }
+  .sections-select { min-height: 29px; }
+}
+
+.sections-empty { padding: 10px 7px; color: var(--muted); font-size: 13px; }

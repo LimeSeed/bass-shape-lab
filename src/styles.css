@@ -13,3 +13,6 @@
 @media(max-width:780px){.board-bottom{display:block}.mode-tabs{justify-content:flex-start;gap:34px}}
 @media(max-width:480px){.board-heading h1{font-size:22px}.mode-tabs button{display:flex;align-items:center;min-height:36px}}
 @media(orientation:landscape) and (max-height:550px){.board-heading h1{font-size:21px}.board-bottom{display:none}}
+/* Shared tool navigation keeps the existing fretboard entry in place. */
+.tool-nav{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:8px;background:#edf0e7;white-space:nowrap}.tool-nav a,.tool-nav>span{display:block;min-height:34px;padding:8px 12px;border-radius:5px;font-size:12px;line-height:18px;color:#71836e}.tool-nav a:hover{background:#e2e9d7;color:var(--ink)}.tool-nav [aria-current=page]{background:var(--paper);color:var(--ink);box-shadow:0 1px 3px #1831220a}.header-actions{gap:18px}.quiet-button{white-space:nowrap}
+@media(max-width:650px){.app-header{height:auto;min-height:96px;flex-wrap:wrap;gap:12px;padding:15px 0 12px}.header-actions{flex-basis:100%;justify-content:space-between;gap:12px}.tool-nav a,.tool-nav>span{min-height:32px;padding:6px 12px}.quiet-button{padding-top:7px;padding-bottom:7px}}

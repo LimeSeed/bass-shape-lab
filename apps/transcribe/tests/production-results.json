@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-19",
+  "browser": "Microsoft Edge Chromium, headless macOS",
+  "url": "http://127.0.0.1:4173",
+  "results": [
+    {
+      "name": "生产构建和本地离线资源就绪",
+      "passed": true,
+      "detail": {
+        "controller": true,
+        "cached": 1
+      }
+    },
+    {
+      "name": "实际 WAV 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.25894066439458263,
+        "sampleRate": 44100,
+        "playbackStartedMs": 276,
+        "playedPosition": 0.21
+      }
+    },
+    {
+      "name": "实际 MP3 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.24599771883455576,
+        "sampleRate": 44100,
+        "playbackStartedMs": 265,
+        "playedPosition": 0.23
+      }
+    },
+    {
+      "name": "实际 FLAC 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.25894066439458263,
+        "sampleRate": 44100,
+        "playbackStartedMs": 264,
+        "playedPosition": 0.23
+      }
+    },
+    {
+      "name": "实际 M4A 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.2579684381370662,
+        "sampleRate": 44100,
+        "playbackStartedMs": 264,
+        "playedPosition": 0.23
+      }
+    },
+    {
+      "name": "实际 OGG 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.2601950449130048,
+        "sampleRate": 44100,
+        "playbackStartedMs": 263,
+        "playedPosition": 0.23
+      }
+    },
+    {
+      "name": "实际 MP4 导入解码和播放",
+      "passed": true,
+      "detail": {
+        "duration": 3,
+        "channels": 1,
+        "rms": 0.2579684381370662,
+        "sampleRate": 44100,
+        "playbackStartedMs": 262,
+        "playedPosition": 0.23
+      }
+    },
+    {
+      "name": "无效文件明确信息且原歌曲仍可用",
+      "passed": true
+    },
+    {
+      "name": "刷新后恢复音频、段落范围和固定R速度",
+      "passed": true,
+      "detail": {
+        "positionBefore": 0.88,
+        "positionAfter": 0.88
+      }
+    },
+    {
+      "name": "网络断开后刷新和保存的音频DSP播放",
+      "passed": true,
+      "detail": "音频与进度已保存到此设备当前离线 | 使用指南"
+    },
+    {
+      "name": "音频删除及刷新后保持删除",
+      "passed": true
+    },
+    {
+      "name": "全部网页请求留在本地且无页面异常",
+      "passed": true,
+      "detail": {
+        "outbound": [],
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "outbound": []
+}

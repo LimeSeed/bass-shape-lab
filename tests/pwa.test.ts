@@ -42,6 +42,7 @@ async function worker(scope = 'https://bass.example/lessons/bass/') {
 
 describe('static PWA generation and lifecycle', () => {
   it('pre-caches every local asset with deterministic versions that change with any file', async () => {
+    await writeFile(join(directory, '.nojekyll'), '');
     const first = await generateServiceWorker(directory);
     const repeat = await generateServiceWorker(directory);
     expect(first.files).toEqual(['assets/app.js', 'index.html']);
@@ -94,6 +95,41 @@ describe('static PWA generation and lifecycle', () => {
     await w.dispatch('install');
     const response = await w.dispatch('fetch', { request: { method: 'GET', mode: 'navigate', url: 'https://bass.example/lessons/bass/?root=Gb&mode=chord&hidden=1' } }) as Response;
     expect(await response.text()).toBe('https://bass.example/lessons/bass/index.html');
+    expect(w.network).not.toHaveBeenCalled();
+  });
+
+  it('serves the tools directory offline while leaving unknown directory routes alone', async () => {
+    await mkdir(join(directory, 'tools'));
+    await writeFile(join(directory, 'tools/index.html'), '<html>tools</html>');
+    await writeFile(join(directory, 'tools/tools.js'), 'console.log("tools")');
+    const w = await worker();
+    await w.dispatch('install');
+    for (const path of ['tools/', 'tools/?from=shape', 'tools/index.html?from=shape']) {
+      const response = await w.dispatch('fetch', { request: { method: 'GET', mode: 'navigate', url: `https://bass.example/lessons/bass/${path}` } }) as Response;
+      expect(await response.clone().text()).toBe('https://bass.example/lessons/bass/tools/index.html');
+    }
+    expect(w.dispatch('fetch', { request: { method: 'GET', mode: 'navigate', url: 'https://bass.example/lessons/bass/tools/unknown' } })).toBeUndefined();
+    expect(w.network).not.toHaveBeenCalled();
+  });
+
+  it('excludes the audio app from root cache versions, fetch handling and cache cleanup', async () => {
+    const before = await generateServiceWorker(directory);
+    await mkdir(join(directory, 'transcribe/assets'), { recursive: true });
+    await writeFile(join(directory, 'transcribe/index.html'), '<html>audio</html>');
+    await writeFile(join(directory, 'transcribe/sw.js'), 'console.log("audio worker")');
+    await writeFile(join(directory, 'transcribe/assets/processor.js'), 'console.log("audio DSP")');
+    const after = await generateServiceWorker(directory);
+    expect(after.version).toBe(before.version);
+    expect(after.files).toEqual(['assets/app.js', 'index.html']);
+    const w = await worker();
+    const audioCache = 'bass-transcribe-lab:https://bass.example/lessons/bass/transcribe/:release';
+    w.names.add(audioCache);
+    await w.dispatch('install');
+    await w.dispatch('activate');
+    expect(w.names.has(audioCache)).toBe(true);
+    for (const path of ['transcribe/', 'transcribe/index.html', 'transcribe/sw.js', 'transcribe/assets/processor.js']) {
+      expect(w.dispatch('fetch', { request: { method: 'GET', mode: path.endsWith('/') ? 'navigate' : 'cors', url: `https://bass.example/lessons/bass/${path}` } })).toBeUndefined();
+    }
     expect(w.network).not.toHaveBeenCalled();
   });
 

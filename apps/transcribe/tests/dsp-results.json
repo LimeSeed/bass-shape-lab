@@ -1,0 +1,121 @@
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+  "sampleRate": 44100,
+  "cases": [
+    {
+      "speed": 1,
+      "pitch": 0,
+      "expectedFrequency": 110,
+      "expectedDuration": 3,
+      "clockDuration": 3.0127891156462585,
+      "pitchErrorCents": -1.0973478439931946e-7,
+      "frequency": 109.99999999302761,
+      "silentRuns": [],
+      "audibleDuration": 2.993106575963719,
+      "peak": 0.15999995172023773,
+      "rms": 0.1131369184752603,
+      "capturedSamples": 139264
+    },
+    {
+      "speed": 0.5,
+      "pitch": 0,
+      "expectedFrequency": 110,
+      "expectedDuration": 6,
+      "clockDuration": 6.008163265306123,
+      "pitchErrorCents": 9.745032961279769,
+      "frequency": 110.62093064929591,
+      "silentRuns": [],
+      "audibleDuration": 5.990453514739229,
+      "peak": 0.15843328833580017,
+      "rms": 0.11146206371023265,
+      "capturedSamples": 272384
+    },
+    {
+      "speed": 1,
+      "pitch": 12,
+      "expectedFrequency": 220,
+      "expectedDuration": 3,
+      "clockDuration": 3.001179138321996,
+      "pitchErrorCents": 5.2439663363627504,
+      "frequency": 220.66739769630135,
+      "silentRuns": [],
+      "audibleDuration": 2.986530612244898,
+      "peak": 0.1573273241519928,
+      "rms": 0.11088214452970778,
+      "capturedSamples": 140288
+    },
+    {
+      "speed": 0.5,
+      "pitch": 12,
+      "expectedFrequency": 220,
+      "expectedDuration": 6,
+      "clockDuration": 6.008163265306122,
+      "pitchErrorCents": 10.818580670472427,
+      "frequency": 221.37909713362959,
+      "silentRuns": [],
+      "audibleDuration": 5.989501133786848,
+      "peak": 0.1563407927751541,
+      "rms": 0.10967249996185964,
+      "capturedSamples": 272384
+    },
+    {
+      "speed": 1,
+      "pitch": 24,
+      "expectedFrequency": 440,
+      "expectedDuration": 3,
+      "clockDuration": 3.0011791383219943,
+      "pitchErrorCents": 2.814890282761545,
+      "frequency": 440.7159974580804,
+      "silentRuns": [],
+      "audibleDuration": 2.989138321995465,
+      "peak": 0.16073179244995117,
+      "rms": 0.11311603903796323,
+      "capturedSamples": 139264
+    }
+  ],
+  "loop": {
+    "expectedInterval": 1.4,
+    "loopTimes": [
+      23.061587301587302,
+      24.4615873015873,
+      25.861587301587303,
+      27.2615873015873
+    ],
+    "loopIntervals": [
+      1.3999999999999986,
+      1.4000000000000021,
+      1.3999999999999986
+    ],
+    "frequency": 108.67184628918103,
+    "silentRuns": [
+      0.2000453514739229,
+      0.2000453514739229,
+      0.2000453514739229,
+      0.2000453514739229
+    ],
+    "audibleDuration": 6.092630385487529,
+    "peak": 0.1898604780435562,
+    "rms": 0.10486008284751973,
+    "capturedSamples": 269312
+  },
+  "seekHigh": {
+    "frequency": 329.99999975042505,
+    "silentRuns": [],
+    "audibleDuration": 0.9984353741496599,
+    "peak": 0.15999963879585266,
+    "rms": 0.11314104439502101,
+    "capturedSamples": 44032
+  },
+  "seekLow": {
+    "frequency": 109.99999999605363,
+    "silentRuns": [],
+    "audibleDuration": 0.9984353741496599,
+    "peak": 0.15999995172023773,
+    "rms": 0.11311977984538547,
+    "capturedSamples": 44032
+  },
+  "pausedPosition": 1.5013605442176892,
+  "pausedAfter": 1.5013605442176892,
+  "stressFinite": true,
+  "closed": "closed"
+}

@@ -64,7 +64,8 @@ test('offline reload restores settings, and an unseen shared query works without
   context.on('request', request => requests.push(request.url()));
   await page.goto('/?root=E&mode=scale');
   await waitUntilOfflineReady(page);
-  expect(requests.every(url => new URL(url).origin === 'http://127.0.0.1:4173')).toBe(true);
+  const origin = new URL(page.url()).origin;
+  expect(requests.every(url => new URL(url).origin === origin)).toBe(true);
   await context.setOffline(true);
   await page.goto('/?root=E&mode=interval&interval=3&view=degree&range=fixed&hidden=1');
   await expect(page.getByRole('heading', { name: 'E · 小三度', exact: true })).toBeVisible();

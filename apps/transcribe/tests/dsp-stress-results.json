@@ -1,0 +1,20 @@
+{
+  "sampleRate": 48000,
+  "frequency48k": [
+    220.9371679185397,
+    440.3485078661947
+  ],
+  "expectedFrequency48k": [
+    220,
+    440
+  ],
+  "peakAfterPositiveEQ": 0.747301459312439,
+  "maxSampleStepDuringStress": 0.04328263271600008,
+  "nonFinite": 0,
+  "errors": [],
+  "stressPosition": 1.4173333333333256,
+  "seekAndParamChanges": 120,
+  "bufferReplacements": 12,
+  "closed": "closed",
+  "limitations": "Node/context lifecycle verified; GC/physical device memory reclamation not instrumented."
+}

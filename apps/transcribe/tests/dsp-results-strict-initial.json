@@ -1,0 +1,103 @@
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+  "sampleRate": 44100,
+  "cases": [
+    {
+      "speed": 1,
+      "pitch": 0,
+      "expectedFrequency": 110,
+      "expectedDuration": 3,
+      "clockDuration": 3.01859410430839,
+      "frequency": 110.39387825903182,
+      "audibleDuration": 2.9873015873015873,
+      "peak": 0.16033057868480682,
+      "rms": 0.11295027017175288,
+      "capturedSamples": 140288
+    },
+    {
+      "speed": 0.5,
+      "pitch": 0,
+      "expectedFrequency": 110,
+      "expectedDuration": 6,
+      "clockDuration": 6.019773242630385,
+      "frequency": 110.62093064929591,
+      "audibleDuration": 5.990453514739229,
+      "peak": 0.15843328833580017,
+      "rms": 0.11146206371023265,
+      "capturedSamples": 272384
+    },
+    {
+      "speed": 1,
+      "pitch": 12,
+      "expectedFrequency": 220,
+      "expectedDuration": 3,
+      "clockDuration": 3.0185941043083897,
+      "frequency": 220.66739769630135,
+      "audibleDuration": 2.986530612244898,
+      "peak": 0.1573273241519928,
+      "rms": 0.11088214452970778,
+      "capturedSamples": 140288
+    },
+    {
+      "speed": 0.5,
+      "pitch": 12,
+      "expectedFrequency": 220,
+      "expectedDuration": 6,
+      "clockDuration": 6.013968253968255,
+      "frequency": 221.37909713362959,
+      "audibleDuration": 5.989501133786848,
+      "peak": 0.1563407927751541,
+      "rms": 0.10967249996185964,
+      "capturedSamples": 272384
+    },
+    {
+      "speed": 1,
+      "pitch": 24,
+      "expectedFrequency": 440,
+      "expectedDuration": 3,
+      "clockDuration": 3.006984126984129,
+      "frequency": 440.7159974580804,
+      "audibleDuration": 2.989138321995465,
+      "peak": 0.16073179244995117,
+      "rms": 0.11311603903796323,
+      "capturedSamples": 140288
+    }
+  ],
+  "loop": {
+    "expectedInterval": 1.4,
+    "loopTimes": [
+      23.108027210884355,
+      24.508027210884354,
+      25.908027210884352,
+      27.308027210884354
+    ],
+    "loopIntervals": [
+      1.3999999999999986,
+      1.3999999999999986,
+      1.4000000000000021
+    ],
+    "frequency": 112.05450679411412,
+    "audibleDuration": 6.092630385487529,
+    "peak": 0.1898604780435562,
+    "rms": 0.10486008284751973,
+    "capturedSamples": 269312
+  },
+  "seekHigh": {
+    "frequency": 330.44595699941107,
+    "audibleDuration": 0.9984353741496599,
+    "peak": 0.1600380539894104,
+    "rms": 0.11291216517930236,
+    "capturedSamples": 44032
+  },
+  "seekLow": {
+    "frequency": 110.39254309104281,
+    "audibleDuration": 0.9984353741496599,
+    "peak": 0.1602693498134613,
+    "rms": 0.11299322665193821,
+    "capturedSamples": 44032
+  },
+  "pausedPosition": 1.5071655328798204,
+  "pausedAfter": 1.5071655328798204,
+  "stressFinite": true,
+  "closed": "closed"
+}

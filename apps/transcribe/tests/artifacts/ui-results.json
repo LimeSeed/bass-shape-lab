@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-11-19T01:53:25.197Z",
+  "browser": "Microsoft Edge Chromium headless, macOS",
+  "results": [
+    {
+      "name": "打开本地预览及空状态",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "真实合成 WAV 导入及PCM波形",
+      "pass": true,
+      "detail": "canvas nontransparent pixels=42291"
+    },
+    {
+      "name": "点击波形定位",
+      "pass": true,
+      "detail": "position=6"
+    },
+    {
+      "name": "双击波形从点击处播放及暂停",
+      "pass": true,
+      "detail": "600ms later source position=4.55"
+    },
+    {
+      "name": "空白拖动创建AB选区",
+      "pass": true,
+      "detail": "A=3.2,B=6.4"
+    },
+    {
+      "name": "拖动A与B边界",
+      "pass": true,
+      "detail": "A=4,B=8"
+    },
+    {
+      "name": "拖动整体选区保持长度",
+      "pass": true,
+      "detail": "4,8 -> 5.6,9.6"
+    },
+    {
+      "name": "拖动播放指针",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "缩放横向滚动及全览",
+      "pass": true,
+      "detail": "8× width 9488px / viewport 1186px"
+    },
+    {
+      "name": "键盘默认快进快退3s与Shift1s",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "快捷键AB边界与循环L",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "上下调速5%与R原速练习速度切换",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "O原音八度及+24与细调控件",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Space播放暂停与暂停回退默认关闭",
+      "pass": true,
+      "detail": "paused position=6.25"
+    },
+    {
+      "name": "暂停自动回退2秒",
+      "pass": true,
+      "detail": "8.31->6.36"
+    },
+    {
+      "name": "文本输入与系统组合键不触发播放器快捷键",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "段落标记添加定位及删除",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "EQ控件与重置",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "浅深色与布局截图",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "连续操作无页面异常",
+      "pass": true,
+      "detail": "8 cycles seek / pitch / play / pause; pageerror=0"
+    },
+    {
+      "name": "文件拖放导入",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "手机尺寸响应布局",
+      "pass": true,
+      "detail": "390×844, document width=390"
+    }
+  ],
+  "errors": []
+}

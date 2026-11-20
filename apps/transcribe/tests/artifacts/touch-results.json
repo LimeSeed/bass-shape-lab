@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-11-19T01:53:34.977Z",
+  "browser": "Microsoft Edge Chromium headless; hasTouch/isMobile + CDP Input.dispatchTouchEvent",
+  "results": [
+    {
+      "name": "触控设备仿真和合成WAV导入",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "触控波形单击定位",
+      "pass": true,
+      "detail": "position=8"
+    },
+    {
+      "name": "真实Touch事件横向拖动创建选区",
+      "pass": true,
+      "detail": "3.2,8"
+    },
+    {
+      "name": "Touch事件拖动AB边界",
+      "pass": true,
+      "detail": "4,9.6"
+    },
+    {
+      "name": "Touch事件整体选区平移",
+      "pass": true,
+      "detail": "4.8,10.4"
+    },
+    {
+      "name": "Touch点击播放及暂停",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "循环播放时UI时间轴反复回到A",
+      "pass": true,
+      "detail": "3.8 秒观察到 2 次回跳；位置范围 2–2.92"
+    },
+    {
+      "name": "触控模拟无横向溢出和截图",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "errors": []
+}

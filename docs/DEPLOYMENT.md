@@ -4,6 +4,10 @@
 
 生产浏览器验证已通过；后续使用反馈中国大陆直接访问不稳定。首次检查时命令行直连超时，浏览器经其环境网络路径访问成功；这不能保证其他网络可达性。详见 [Vercel 发布记录](VERCEL-RELEASE.md) 和 [测试结果](TESTING.md)。
 
+## 同仓库构建（2026-11-20）
+
+现在仓库同时构建指板、工具入口与扒谱。先运行 `npm ci` 和 `npx --yes pnpm@11.25.0 --dir apps/transcribe install --frozen-lockfile`，再运行 `npm run build`；只安装根依赖会缺少扒谱构建所需库。GitHub Actions 已包含两步安装；Vercel 的 `vercel.json` 同步配置了这一步，仍输出完整 `dist/`。下方原有平台配置示例的安装命令也应使用这条组合命令。实际结果见 [整合发布记录](TOOLS-RELEASE.md)。
+
 ## 当前 GitHub Pages 部署
 
 仓库 `main` 分支通过 `.github/workflows/pages.yml` 自动完成依赖安装、单元测试、生产构建、浏览器测试，然后发布 `dist/`。所有检查成功后才执行部署，也可从 Actions 手动运行。Pages 使用项目子路径 `/bass-shape-lab/`，保留结尾 `/` 即可正确加载相对资源和离线作用域。

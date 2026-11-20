@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f5ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121b18" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Bass Lab 指板与扒谱工具" />
+    <title>Bass Lab · 工具</title>
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg" />
+    <link rel="stylesheet" href="./tools.css" />
+    <script type="module" src="./tools.js"></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="header">
+        <a class="brand" href="./" aria-label="Bass Lab 工具首页"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Bass <b>Lab</b></span></a>
+        <nav class="tool-nav" aria-label="工具切换"><span aria-current="page">工具</span><a href="../">指板</a><a href="../transcribe/">扒谱</a></nav>
+      </header>
+      <div class="notice" id="update-notice" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">更新</button></div>
+      <div class="notice error" id="cache-error" role="alert" hidden><span>离线准备失败，请联网重试。</span><button type="button" id="retry-cache">重试</button></div>
+      <main>
+        <h1>练习工具</h1>
+        <div class="tools">
+          <a class="tool-card" href="../" aria-label="打开指板">
+            <div class="card-visual fretboard" aria-hidden="true">
+              <svg viewBox="0 0 440 190" fill="none"><path d="M34 42H406M34 78H406M34 114H406M34 150H406" class="strings"/><path d="M87 24V168M153 24V168M219 24V168M285 24V168M351 24V168" class="frets"/><g class="notes"><circle cx="54" cy="42" r="11"/><circle cx="120" cy="78" r="11"/><circle cx="186" cy="114" r="11"/><circle cx="252" cy="150" r="11"/><circle cx="318" cy="78" r="11"/><circle cx="384" cy="114" r="11"/></g><g class="roots"><circle cx="120" cy="150" r="12"/><circle cx="252" cy="42" r="12"/></g></svg>
+            </div>
+            <div class="card-body"><span class="card-name">Bass Shape Lab</span><div class="card-title"><h2>指板</h2><span class="arrow" aria-hidden="true">↗</span></div><p>音阶、和弦与音程</p></div>
+          </a>
+          <a class="tool-card" href="../transcribe/" aria-label="打开扒谱">
+            <div class="card-visual waveform" aria-hidden="true">
+              <svg viewBox="0 0 440 190" fill="none"><path d="M34 95H406" class="axis"/><rect x="164" y="24" width="140" height="142" rx="3" class="selection"/><g class="bars" stroke-linecap="round"><path d="M40 86V104M48 80V110M56 65V125M64 41V149M72 54V136M80 70V120M88 79V111M96 86V104M112 81V109M120 64V126M128 49V141M136 68V122M144 81V109M160 87V103M168 77V113M176 50V140M184 34V156M192 46V144M200 64V126M208 80V110M216 85V105M232 82V108M240 69V121M248 55V135M256 39V151M264 48V142M272 67V123M280 79V111M288 86V104M304 84V106M312 74V116M320 59V131M328 45V145M336 58V132M344 74V116M352 83V107M368 86V104M376 75V115M384 63V127M392 76V114M400 85V105"/></g><path d="M164 24V166M304 24V166" class="bounds"/></svg>
+            </div>
+            <div class="card-body"><span class="card-name">Bass Transcribe Lab</span><div class="card-title"><h2>扒谱</h2><span class="arrow" aria-hidden="true">↗</span></div><p>变速、移调与段落循环</p></div>
+          </a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-# Bass Shape Lab V1.0.1
+# Bass Lab 工具站 V1.0.1
 
 用于四弦贝斯教学和日常练习的独立静态 PWA。React + TypeScript + Vite + SVG；乐理与指板计算全部在本机完成，无数据库、后端、账号、外部字体、统计脚本或在线运行时资源。
 
@@ -12,34 +12,39 @@ GitHub Pages 会在 `main` 分支更新后自动测试、构建和发布；现�
 
 Vercel 生产版本已通过匿名浏览器访问、分享设置及离线重载验证，后续使用反馈中国大陆直接访问不稳定。GitHub Pages 已完成自动测试、构建和发布；本次线上检查使用现有代理网络路径，不代表中国大陆直连验收。[Vercel 发布记录](docs/VERCEL-RELEASE.md)
 
+## 工具入口与目录
+
+本仓库现在同时维护指板与扒谱两个独立应用，统一构建、测试和发布：
+
+| 入口（相对于站点目录） | 工具 | 源码 |
+| --- | --- | --- |
+| `./` | Bass Shape Lab 指板，保留原网址与分享参数 | `src/` |
+| `tools/` | Bass Lab 工具入口 | `public/tools/` |
+| `transcribe/` | Bass Transcribe Lab 扒谱 | `apps/transcribe/src/` |
+
+线上合并发布结果请以 [整合验证与发布记录](docs/TOOLS-RELEASE.md) 为准。旧指板已安装 PWA 的身份及启动入口不变；指板根缓存和扒谱子目录缓存分别维护。原本地独立项目目录保留。
+
 ## 本地运行
 
-从 GitHub 获取源码后，先按下方命令安装依赖并构建。发布压缩包如已包含 `dist/`，macOS 可直接双击 **`preview.command`**，它会用 Python 3 启动本机服务并打开 [本地预览](http://127.0.0.1:4173/)；保持终端窗口打开，按 Control+C 停止。已有构建时此方式不需要 Node 或安装项目依赖，但需要 Python 3。若 4173 端口已被预览占用，可直接访问已有地址；其他情况可用下方 npm 方式指定另一端口。
-
-若要修改源码或重新构建：
-
-安装 Node.js **22.12 或更高版本**（建议 Node 24 LTS）和 npm，在项目目录执行：
+需要 Node.js 24 和 pnpm 11.25.0。两套锁定文件分别管理各自依赖：
 
 ```sh
 npm ci
-npm run dev
+npx --yes pnpm@11.25.0 --dir apps/transcribe install --frozen-lockfile
+npm test
+npm run test:transcribe
+npm run build
+npm run preview -- --port 4175
 ```
 
-打开终端显示的本地地址。开发模式不注册离线缓存，避免旧资源干扰修改。
-
-验证完整生产版本：
+预览时打开 `http://127.0.0.1:4175/tools/`。指板开发使用 `npm run dev`，扒谱开发使用 `npm run dev:transcribe`；完整工具导航与离线功能请使用生产构建预览。
 
 ```sh
-npm test
-npm run build
-npm run preview
+npx playwright install chromium
+npm run test:browser
 ```
 
-打开预览地址，等待页脚显示“离线已就绪”，再测试断网刷新。`dist/` 是完整静态发布目录；不要双击 `index.html` 使用 `file://` 打开。
-
-如默认预览端口被其他程序占用：`npm run preview -- --port 4174`，再访问终端显示的新地址。不同端口属于不同站点，需各自完成首次缓存。
-
-浏览器端到端测试说明见 [docs/TESTING.md](docs/TESTING.md)，发布步骤见 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)。
+浏览器测试使用独立端口 4175，可通过 `BASS_TEST_PORT` 调整；可用 `PLAYWRIGHT_EXECUTABLE_PATH` 指定本机 Chromium 系浏览器。生产构建输出完整 `dist/`，不要只发布某个子目录。
 
 ## 练习方式
 

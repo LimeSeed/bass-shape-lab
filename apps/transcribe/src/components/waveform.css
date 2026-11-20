@@ -1,0 +1,57 @@
+.waveform { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+.wave-toolbar { min-height: 54px; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.wave-title { display: flex; align-items: center; gap: 12px; font-weight: 650; font-size: 14px; }
+.wave-zoom { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
+.wave-zoom label, .wave-zoom button { white-space: nowrap; }
+.wave-zoom input { width: 95px; height: 24px; margin: 0; accent-color: var(--accent); }
+.wave-zoom-value { min-width: 36px; font-variant-numeric: tabular-nums; }
+.wave-zoom button { padding: 5px 9px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--text); font: inherit; cursor: pointer; }
+.wave-zoom button:disabled, .wave-zoom input:disabled { opacity: .45; cursor: default; }
+.wave-scroll { position: relative; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--muted) transparent; overscroll-behavior-x: contain; }
+.wave-inner { position: relative; min-width: 100%; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: crosshair; }
+.wave-canvas { position: sticky; left: 0; top: 0; display: block; pointer-events: none; }
+.wave-inner.is-panning { cursor: grab; }
+.wave-inner.is-panning:active { cursor: grabbing; }
+.wave-pan-toggle.is-active { color: var(--accent); background: var(--raised); border-color: var(--accent); }
+.wave-region { z-index: 3; position: absolute; top: 29px; bottom: 0; min-width: 1px; background: color-mix(in srgb, var(--accent) 7%, transparent); pointer-events: none; }
+.wave-region.is-looping { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.wave-region-move { position: absolute; top: 0; left: 0; right: 0; height: 24px; padding: 0; overflow: hidden; white-space: nowrap; background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); font-size: 12px; cursor: grab; pointer-events: auto; touch-action: none; }
+.wave-region-move:active { cursor: grabbing; }
+.wave-region-label { position: absolute; left: 28px; right: 28px; top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 18px; pointer-events: none; }
+.wave-boundary.is-pending { pointer-events: none; }
+.wave-boundary { position: absolute; top: 29px; bottom: 0; width: 24px; margin-left: -12px; z-index: 9; cursor: ew-resize; touch-action: none; outline: none; }
+.wave-boundary::before { position: absolute; top: 0; bottom: 0; left: 11px; width: 2px; content: ''; background: var(--accent); }
+.wave-boundary span { position: absolute; top: 0; width: 25px; height: 25px; display: grid; place-items: center; background: var(--accent); color: #102924; border-radius: 4px; font: 700 12px ui-monospace, monospace; }
+.wave-boundary-a span { left: 11px; }
+.wave-boundary-b span { right: 11px; }
+.wave-boundary:focus-visible span, .wave-playhead:focus-visible span { outline: 3px solid var(--text); outline-offset: 3px; }
+.wave-playhead { position: absolute; top: 0; bottom: 0; z-index: 8; width: 20px; margin-left: -10px; pointer-events: none; cursor: ew-resize; touch-action: none; outline: none; }
+.wave-playhead::before { position: absolute; top: 2px; bottom: 0; left: 9px; width: 1px; content: ''; background: var(--warm, #f3b56a); box-shadow: 0 0 6px color-mix(in srgb, var(--warm, #f3b56a) 25%, transparent); }
+.wave-playhead span { pointer-events: auto; touch-action: none; position: absolute; left: 3px; top: 0; height: 10px; width: 13px; background: var(--warm, #f3b56a); clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%); }
+.wave-playhead-grab { position: absolute; left: 0; right: 0; bottom: 0; pointer-events: auto; touch-action: none; }
+.wave-empty { position: absolute; inset: 45px 12px 20px; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; pointer-events: none; text-align: center; }
+.wave-empty strong { color: var(--text); font-size: 22px; letter-spacing: .04em; }
+.wave-empty-formats { margin-top: 8px; font-size: 12px; }
+@media (max-width: 650px) {
+  .wave-toolbar { padding: 10px 12px; flex-wrap: wrap; }
+  .wave-zoom { width: 100%; gap: 8px; }
+  .wave-zoom input { flex: 1; width: 70px; min-width: 50px; }
+  .wave-zoom button { min-height: 34px; padding: 5px 7px; }
+  .wave-boundary { width: 32px; margin-left: -16px; }
+  .wave-boundary::before { left: 15px; }
+  .wave-boundary-a span { left: 15px; }
+  .wave-boundary-b span { right: 15px; }
+}
+
+.wave-saved-region { position: absolute; bottom: 0; z-index: 4; min-width: 1px; border: 1px solid color-mix(in srgb, var(--warm) 60%, transparent); background: color-mix(in srgb, var(--warm) 3%, transparent); pointer-events: none; }
+.wave-saved-select { position: absolute; left: -1px; right: -1px; z-index: 5; height: 16px; min-height: 16px; padding: 0 6px; border: 0; border-radius: 2px; justify-content: flex-start; background: color-mix(in srgb, var(--warm) 25%, var(--panel)); color: var(--warm); font-size: 11px; line-height: 16px; white-space: nowrap; cursor: pointer; pointer-events: auto; touch-action: pan-y; }
+.wave-saved-select span { display: block; width: max-content; max-width: 155px; padding: 0 3px; overflow: hidden; text-overflow: ellipsis; background: color-mix(in srgb, var(--warm) 16%, var(--panel)); pointer-events: auto; }
+.wave-saved-select:hover { color: var(--text); background: color-mix(in srgb, var(--warm) 35%, var(--panel)); }
+.wave-saved-edge { position: absolute; top: 0; bottom: 0; width: 5px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 0; pointer-events: auto; background: transparent; cursor: pointer; }
+.wave-saved-edge.is-start { left: -2px; }
+.wave-saved-edge.is-end { right: -2px; }
+.wave-cue { position: absolute; top: 0; bottom: 0; width: 22px; margin-left: -11px; z-index: 10; outline: none; pointer-events: none; --cue-color: #83a6c4; }
+.wave-cue::before { content: ''; position: absolute; top: 15px; bottom: 0; left: 10px; width: 1px; background: var(--cue-color); opacity: .85; pointer-events: none; }
+.wave-cue-flag { position: absolute; top: 10px; left: 0; width: 22px; height: 18px; pointer-events: auto; touch-action: none; cursor: ew-resize; }
+.wave-cue-flag::before { content: ''; position: absolute; left: 10px; top: 4px; width: 9px; height: 10px; background: var(--cue-color); clip-path: polygon(0 0,100% 0,100% 100%,0 75%); }
+.wave-cue:focus-visible .wave-cue-flag { outline: 2px solid var(--cue-color); outline-offset: 1px; border-radius: 3px; }

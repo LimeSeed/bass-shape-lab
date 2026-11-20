@@ -1,0 +1,11 @@
+{
+  "inputHz": 110,
+  "speed": 0.5,
+  "pitchSemitones": 12,
+  "official1sec": 221.38130027199153,
+  "official4sec": 221.38047783487562,
+  "spectral": {
+    "frequency": 221.38000000000224,
+    "power": 73086357.83325368
+  }
+}

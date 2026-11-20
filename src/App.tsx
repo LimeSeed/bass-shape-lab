@@ -3,7 +3,6 @@ import Fretboard from './components/Fretboard';
 import { ROOTS, scale, chord, chromatic, resolveRoot, type ChordKind } from './lib/musicTheory';
 import { DEFAULT_SETTINGS, parseSettings, serializeSettings, type Settings } from './lib/settings';
 import { registerPwa } from './lib/pwa';
-import { version } from '../package.json';
 
 const modes = [{ id: 'scale', label: '音阶' }, { id: 'chord', label: '和弦' }, { id: 'interval', label: '音程' }] as const;
 const intervals = ['纯一度', '小二度', '大二度', '小三度', '大三度', '纯四度', '减五度', '纯五度', '小六度', '大六度', '小七度', '大七度'];
@@ -60,7 +59,7 @@ export default function App() {
   return <div className="app-shell">
     <header className="app-header">
       <a className="brand" href="./" aria-label="Bass Shape Lab 首页"><span className="brand-icon" aria-hidden="true"><i /><i /><i /><i /></span><span>Bass Shape <b>Lab</b></span></a>
-      <div className="header-actions"><span className="version">V{version}</span><button className="quiet-button" onClick={installApp}>安装应用 <span aria-hidden="true">↗</span></button></div>
+      <div className="header-actions"><nav className="tool-nav" aria-label="工具切换"><a href="./tools/">工具</a><span aria-current="page">指板</span><a href="./transcribe/">扒谱</a></nav><button className="quiet-button" onClick={installApp}>安装应用 <span aria-hidden="true">↗</span></button></div>
     </header>
     {update && <div className="update-banner" role="status"><span>发现新版本，更新后继续当前练习。</span><button onClick={update}>立即更新 ↻</button></div>}
     {installHelp && <div className="help-panel"><strong>添加到主屏幕</strong><p>iPhone / iPad：在 Safari 中点“分享”，选择“添加到主屏幕”。Android 或桌面：在浏览器菜单中选择“安装应用”或“添加到主屏幕”。</p><p>{offlineReady ? '离线资源已缓存，之后可以断网练习。' : import.meta.env.DEV ? '当前为开发预览；构建后的版本支持离线缓存。' : '首次联网加载后，等待底部显示“离线已就绪”。'} 安装入口由浏览器提供。</p><button className="text-button" onClick={() => setInstallHelp(false)}>收起</button></div>}
