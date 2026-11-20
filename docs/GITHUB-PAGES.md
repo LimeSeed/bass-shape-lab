@@ -1,6 +1,14 @@
 # GitHub Pages
 
-## 当前发布
+## 工具站发布（2026-11-20）
+
+指板和扒谱现已在同一个仓库发布。功能提交 [`b050519`](https://github.com/LimeSeed/bass-shape-lab/commit/b050519ba250078463f66ca471216097dd74878c) 的 [Actions 44705272755](https://github.com/LimeSeed/bass-shape-lab/actions/runs/44705272755) 全部测试、构建和部署成功；三个公开入口及23个运行文件下载对照通过。当前网络下的线上浏览器连接中断和未验证设备详见 [整合记录](TOOLS-RELEASE.md)。
+
+- [工具入口](https://limeseed.github.io/bass-shape-lab/tools/)
+- [指板（原网址保留）](https://limeseed.github.io/bass-shape-lab/)
+- [扒谱](https://limeseed.github.io/bass-shape-lab/transcribe/)
+
+## 指板首发记录
 
 | 项目 | 地址或状态 |
 | --- | --- |

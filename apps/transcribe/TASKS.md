@@ -73,3 +73,7 @@
 - [x] 本地main提交和发布包准备
 - [ ] 远端新仓库及Pages发布源就绪（当前GitHub网页TLS连接失败，已连接GitHub工具无新建仓库/Pages设置接口，本机无可用Git凭据；需要用户完成这一步）
 - [ ] 上传源码、远端Actions完成、公开网址验收；未宣称已上线
+
+## 2026-11-20 同仓库发布结果
+
+独立仓库创建方案已由用户改为同仓库工具站，以上独立仓库待办不再适用。本应用源码现位于 `LimeSeed/bass-shape-lab/apps/transcribe`，Pages入口为 `https://limeseed.github.io/bass-shape-lab/transcribe/`。功能提交 `b050519` 已通过 GitHub Actions 44705272755 的测试、构建及发布；公网文件对照通过。最新任务及验证限制见 [根任务清单](../../TASKS.md) 和 [整合报告](../../docs/TOOLS-RELEASE.md)。

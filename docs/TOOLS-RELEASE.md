@@ -36,7 +36,7 @@
 
 ## 发布核对
 
-GitHub Actions 完成测试后才发布 Pages；当前结果应从 [工作流运行记录](https://github.com/LimeSeed/bass-shape-lab/actions/workflows/pages.yml) 和提交对应的部署环境核对。网站目标入口为 [工具](https://limeseed.github.io/bass-shape-lab/tools/)、[指板](https://limeseed.github.io/bass-shape-lab/)、[扒谱](https://limeseed.github.io/bass-shape-lab/transcribe/)。以上本地结果不等于公共部署成功，实际上传及线上结果另在交付记录中核实。
+功能提交 [`b050519ba250078463f66ca471216097dd74878c`](https://github.com/LimeSeed/bass-shape-lab/commit/b050519ba250078463f66ca471216097dd74878c) 已通过 [GitHub Actions 44705272755](https://github.com/LimeSeed/bass-shape-lab/actions/runs/44705272755) 的全部测试、构建和Pages部署，状态completed/success。既有Vercel的提交状态也返回success。公开入口为 [工具](https://limeseed.github.io/bass-shape-lab/tools/)、[指板](https://limeseed.github.io/bass-shape-lab/)、[扒谱](https://limeseed.github.io/bass-shape-lab/transcribe/)。发布后通过正常证书校验的HTTPS逐文件下载核对：三个入口和23个运行文件均HTTP200，SHA256与本地已测试dist完全一致，包含两个应用入口、CSS/JS、音频处理器、两个SW及清单、工具页和图标。因此已确认新版公开静态产物更新。独立Edge访问公开页面在当前网络返回ERR_CONNECTION_CLOSED，不能将文件核对描述为线上浏览器E2E通过。
 
 既有Vercel项目也连接此仓库；`vercel.json` 已同步两套依赖安装与组合构建。不创建额外项目或购买服务。
 
